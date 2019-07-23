@@ -9,8 +9,8 @@ import liquorStoreApi from '../apis/liquorStoreApi'
 
 
 
-export const addItemToCart = item => async (dispatch, getState) => {
-    const response = await liquorStoreApi.post(`/addItemToCart/`,{itemId: item.itemId, quantity: item.quantity});
+export const addItemToCart = (itemId, quantity) => async (dispatch, getState) => {
+    const response = await liquorStoreApi.put(`/addItemToCart`,{itemId: itemId, quantity: quantity});
 
     dispatch({
         type: ADD_ITEM_TO_CART,
@@ -19,7 +19,7 @@ export const addItemToCart = item => async (dispatch, getState) => {
 };
 
 export const updateCartItemQuantity = (itemId, quantity) => async (dispatch, getState) => {
-    const response = await liquorStoreApi.put(`/updateCartItemQuantity/`,{itemId, quantity});
+    const response = await liquorStoreApi.post(`/updateCartItemQuantity`,{itemId, quantity});
 
     dispatch({
         type: UPDATE_ITEM_QUANTITY,

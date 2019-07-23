@@ -24,6 +24,7 @@ class App extends React.Component{
                 {this.renderSpinner()}
                 <Switch>
                     <Route path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
+                    <Route path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
                 </Switch>
             </Container>
         );

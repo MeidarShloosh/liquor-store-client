@@ -1,10 +1,11 @@
 import React from 'react'
-import {Button, Header, Icon, Table, Image, Input} from "semantic-ui-react";
+import {Button, Header, Icon, Table, Image, Input, Message} from "semantic-ui-react";
 import {connect} from "react-redux";
 import {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart, checkout} from "../../actions/cartActions";
 import {Link} from "react-router-dom";
 
-class Cart extends React.Component{
+class Checkout extends React.Component{
+    state = {checkedOut: false};
     componentDidMount() {
         this.props.fetchCart();
     }
@@ -25,16 +26,17 @@ class Cart extends React.Component{
                     {description}
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
-                    <Input type="number" value={quantity} onChange={e=> this.props.updateCartItemQuantity(itemId, e.target.value)} max="19" min="0"/>
+                    {quantity}
                 </Table.Cell>
-                <Table.Cell textAlign='center'>
-                    <Button negative onClick={()=>this.props.removeItemFromCart(itemId)}>Remove Item</Button>
-                </Table.Cell>
+
             </Table.Row>
         ));
 
     }
-
+    onCheckout = ()=>{
+      this.props.checkout();
+      this.setState({checkout: true})
+    };
     render() {
         return (
             <div>
@@ -47,7 +49,6 @@ class Cart extends React.Component{
                             <Table.HeaderCell>Category</Table.HeaderCell>
                             <Table.HeaderCell>Description</Table.HeaderCell>
                             <Table.HeaderCell>Quantity</Table.HeaderCell>
-                            <Table.HeaderCell singleLine>Remove Item</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
 
@@ -57,21 +58,25 @@ class Cart extends React.Component{
                     <Table.Footer fullWidth>
                         <Table.Row>
                             <Table.HeaderCell />
-                            <Table.HeaderCell colSpan='6'>
-                                <Link to='/checkout' floated='right' color="green"  icon labelPosition='left'  size='small'>
+                            <Table.HeaderCell colSpan='5' textAlign='center'>
+                                <Button   floated='right' color="green" onClick={this.onCheckout} icon labelPosition='left'  size='large'>
                                     <Icon name='shopping cart' /> Checkout
-                                </Link>
+                                </Button>
                             </Table.HeaderCell>
                         </Table.Row>
                     </Table.Footer>
                 </Table>
+                {
+                    this.state.checkedOut &&
+                    <Message success header='Checkout Completed' content="You're checkout was completed successfully" />
+                }
             </div>
         )
     }
 }
 
-const mapStateToProp= (state) =>{
+const mapStateToProp = (state) =>{
     return {cart: state.cart};
 };
 
-export default connect(mapStateToProp, {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart, checkout})(Cart);
+export default connect(mapStateToProp, {fetchCart, checkout})(Checkout);
