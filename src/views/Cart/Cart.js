@@ -9,22 +9,25 @@ class Cart extends React.Component{
     }
 
     renderCartRows(){
-        return this.props.map(item=>(
+        return this.props.map(({itemId, image, category, description,quantity})=>(
             <Table.Row>
                 <Table.Cell>
-                    <Image src={item.image} size="small"/>
+                    <Image src={image} size="small"/>
                 </Table.Cell>
                 <Table.Cell>
-                    {item.name}
+                    {name}
                 </Table.Cell>
                 <Table.Cell>
-                    {item.category}
+                    {category}
                 </Table.Cell>
                 <Table.Cell>
-                    {item.description}
+                    {description}
                 </Table.Cell>
                 <Table.Cell>
-                    <Input type="number" value={item.quantity} onChange={e=> this.props.updateCartItemQuantity(item.itemId, e.target.value)} max="19" min="0"/>
+                    <Input type="number" value={quantity} onChange={e=> this.props.updateCartItemQuantity(itemId, e.target.value)} max="19" min="0"/>
+                </Table.Cell>
+                <Table.Cell>
+                    <Button negative onClick={()=>this.props.removeItemFromCart(itemId)}>Remove Item</Button>
                 </Table.Cell>
             </Table.Row>
         ));
@@ -53,7 +56,7 @@ class Cart extends React.Component{
                         <Table.Row>
                             <Table.HeaderCell />
                             <Table.HeaderCell colSpan='4'>
-                                <Button floated='right' color="green" icon labelPosition='left'  size='small'>
+                                <Button floated='right' color="green" onClick={this.props.checkout()} icon labelPosition='left'  size='small'>
                                     <Icon name='shopping cart' /> To Checkout
                                 </Button>
                             </Table.HeaderCell>
