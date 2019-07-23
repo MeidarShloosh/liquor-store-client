@@ -1,0 +1,9 @@
+.login-wrapper {
+    background-image: url('https://images.pexels.com/photos/301692/pexels-photo-301692.jpeg?cs=srgb&dl=alcohol-background-bar-301692.jpg&fm=jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    magin-bottom: -15px;
+}
+body{
+    margin:0;
+}
