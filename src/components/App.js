@@ -23,7 +23,7 @@ class App extends React.Component{
                 <Header/>
                 {this.renderSpinner()}
                 <Switch>
-                    <PrivateRoute path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
+                    <Route path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
                 </Switch>
             </Container>
         );

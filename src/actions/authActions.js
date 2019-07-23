@@ -1,8 +1,7 @@
 import {SIGN_IN, SIGN_OUT} from "./types";
 import liquorStoreApi from "../apis/liquorStoreApi";
-import history from "../history";
 
-export const signIn = (redirectLink) => async (dispatch, getState) => {
+export const signIn = () => async (dispatch, getState) => {
     try {
         const response = await liquorStoreApi.get(`/user`);
 
@@ -19,7 +18,7 @@ export const signIn = (redirectLink) => async (dispatch, getState) => {
     }
 };
 
-export const signOut = (session, onErr) => async (dispatch, getState) => {
+export const signOut = () => async (dispatch, getState) => {
     try {
         const response = await liquorStoreApi.post(`/logout`);
     }

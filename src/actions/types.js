@@ -1,7 +1,7 @@
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
-export const CREATE_STREAM = 'CREATE_STREAM';
-export const EDIT_STREAM = 'EDIT_STREAM';
-export const DELETE_STREAM = 'DELETE_STREAM';
-export const FETCH_STREAMS = 'FETCH_STREAMS';
-export const FETCH_STREAM = 'FETCH_STREAM';
+export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
+export const UPDATE_ITEM_QUANTITY = 'UPDATE_ITEM_QUANTITY';
+export const REMOVE_ITEM_FROM_CART = 'REMOVE_ITEM_FROM_CART';
+export const FETCH_CART = 'FETCH_CART';
+export const CHECKOUT = 'CHECKOUT';
