@@ -4,7 +4,7 @@ import history from "../history";
 
 export const signIn = (redirectLink) => async (dispatch, getState) => {
     try {
-        const response = await liquorStoreApi.get(`/user`, {withCredentials: true});
+        const response = await liquorStoreApi.get(`/user`);
 
         dispatch({
             type: SIGN_IN,
