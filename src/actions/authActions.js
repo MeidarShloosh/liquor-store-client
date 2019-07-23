@@ -2,7 +2,7 @@ import {SIGN_IN, SIGN_OUT} from "./types";
 import liquorStoreApi from "../apis/liquorStoreApi";
 import history from "../history";
 
-export const signIn = () => async (dispatch, getState) => {
+export const signIn = (redirectLink) => async (dispatch, getState) => {
     try {
         const response = await liquorStoreApi.get(`/user`, {withCredentials: true});
 
@@ -17,7 +17,6 @@ export const signIn = () => async (dispatch, getState) => {
         });
 
     }
-    history.push('/')
 };
 
 export const signOut = (session, onErr) => async (dispatch, getState) => {
@@ -30,6 +29,4 @@ export const signOut = (session, onErr) => async (dispatch, getState) => {
     dispatch({
         type: SIGN_OUT
     });
-
-    history.push('/')
 };

@@ -12,7 +12,9 @@ class Auth extends React.Component{
         const session = cookies.get('session');
 
         if(session !== undefined){
-            this.props.signIn()
+            this.props.signIn();
+        }else{
+            this.props.signOut();
         }
     }
 

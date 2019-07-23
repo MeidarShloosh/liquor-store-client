@@ -6,6 +6,7 @@ import {NavLink} from "react-router-dom";
 import {Button, Form, Grid, Header, Image, Message, Segment, Container, Checkbox} from 'semantic-ui-react'
 import liquorStoreApi from "../../apis/liquorStoreApi";
 import './Registration.css'
+import history from "../../history";
 
 class Registration extends React.Component{
     state={username: "", password: "", confirmPass: "", errMessage: "", rememberMe: true};
@@ -38,6 +39,7 @@ class Registration extends React.Component{
                 {username, password, rememberMe,withCredentials: true, headers: { crossDomain: true}});
 
             this.props.signIn();
+            history.push('/');
         }
         catch (e) {
             this.setState({errMessage: e.response.data});
