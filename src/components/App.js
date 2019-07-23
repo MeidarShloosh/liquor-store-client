@@ -1,19 +1,29 @@
 import React from 'react';
 import {Container} from "semantic-ui-react";
 import Header from "./Header";
-import {withCookies} from "react-cookie";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
-import {signIn, signOut} from "../actions/authActions";
+import PrivateRoute from "./PrivateRoute";
+import Cart from "../views/Cart/Cart";
+import Spinner from "./Spinner";
 
 class App extends React.Component{
 
+    renderSpinner(){
+        if(this.props.isSignedIn === null){
+            return <Spinner/>
+        }
+        else
+            return null;
+    }
     render(){
+
         return (
             <Container>
                 <Header/>
+                {this.renderSpinner()}
                 <Switch>
-
+                    <PrivateRoute path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
                 </Switch>
             </Container>
         );
