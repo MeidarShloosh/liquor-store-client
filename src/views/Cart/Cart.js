@@ -42,10 +42,11 @@ class Cart extends React.Component{
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell singleLine>Item Image</Table.HeaderCell>
-                            <Table.HeaderCell>Item Name</Table.HeaderCell>
+                            <Table.HeaderCell singleLine>Item Name</Table.HeaderCell>
                             <Table.HeaderCell>Category</Table.HeaderCell>
                             <Table.HeaderCell>Description</Table.HeaderCell>
                             <Table.HeaderCell>Quantity</Table.HeaderCell>
+                            <Table.HeaderCell singleLine>Remove Item</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
 
@@ -57,7 +58,7 @@ class Cart extends React.Component{
                             <Table.HeaderCell />
                             <Table.HeaderCell colSpan='4'>
                                 <Button floated='right' color="green" onClick={this.props.checkout()} icon labelPosition='left'  size='small'>
-                                    <Icon name='shopping cart' /> To Checkout
+                                    <Icon name='shopping cart' /> Checkout
                                 </Button>
                             </Table.HeaderCell>
                         </Table.Row>
