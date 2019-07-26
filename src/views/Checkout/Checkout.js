@@ -68,7 +68,7 @@ class Checkout extends React.Component{
                 </Table>
                 {
                     this.state.checkedOut &&
-                    <Message success header='Checkout Completed' content="You're checkout was completed successfully" />
+                    <Message success header='Checkout Completed' content="Your checkout was completed successfully" />
                 }
             </div>
         )
