@@ -21,7 +21,14 @@ class Store extends React.Component{
             image={cocktail.image}
             header={cocktail.name}
             meta="Cocktails"
-            description={cocktail.description}
+            description={
+                <div>
+                    <p>
+                    cocktail.description
+                    </p>
+                    <strong>Price: {cocktail.price} NIS</strong>
+                </div>
+            }
             extra={
                 <div>
                     <Button onClick={()=>this.props.addCocktailToCart(cocktail)} color="green" icon="cart" content='Add cocktail to Cart' floated="right" />

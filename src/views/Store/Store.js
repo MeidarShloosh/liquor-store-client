@@ -22,7 +22,7 @@ class Store extends React.Component{
             image={item.image}
             header={item.name}
             meta={item.category}
-            description={item.description}
+            description={`Price: ${item.price} NIS`}
             extra={
                 <div>
                     {this.props.user.isAdmin &&
