@@ -2,8 +2,7 @@ import  React,{Component} from 'react'
 
 import {Card, Grid} from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
-import history from '../../history'
-import Spinner from "../Spinner/Spinner";
+import Spinner from "./Spinner";
 
 class SearchableCardDec extends Component{
     state = { searchText: ""};

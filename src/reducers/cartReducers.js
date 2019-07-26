@@ -30,7 +30,7 @@ export default (cart = [], action) => {
         case FETCH_CART:
             return [...action.payload];
         case REMOVE_ITEM_FROM_CART:
-            return _.remove(cart, item=> item.itemId === action.payload.itemId);
+            return _.remove(cart, item=> item.itemId === action.payload);
         case CHECKOUT:
             return [];
         default:

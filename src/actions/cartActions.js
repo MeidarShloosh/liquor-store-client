@@ -34,7 +34,7 @@ export const removeItemFromCart = itemId => async (dispatch, getState) => {
 
     dispatch({
         type: REMOVE_ITEM_FROM_CART,
-        payload: item
+        payload: itemId
     })
 };
 

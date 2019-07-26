@@ -36,7 +36,7 @@ class Store extends React.Component{
     };
 
     render() {
-        <SearchableCardDec
+        return <SearchableCardDec
             isLoading={this.state.isLoading}
             itemRender={this.renderItem}
             loadingMessage="Loading Store"

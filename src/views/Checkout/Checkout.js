@@ -12,7 +12,7 @@ class Checkout extends React.Component{
     }
 
     renderCartRows(){
-        return this.props.cart.map(({itemId, image, category, price, quantity})=> {
+        return this.props.cart.map(({itemId, name, image, category, price, quantity})=> {
             this.total += price * quantity;
 
             return <Table.Row>
