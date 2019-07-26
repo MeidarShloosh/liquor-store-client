@@ -25,9 +25,10 @@ class App extends React.Component{
                 <Header/>
                 {this.renderSpinner()}
                 <Switch>
-                    <Route path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
-                    <Route path='/store' exact isSignedIn={this.props.isSignedIn} component={Store}/>
-                    <Route path='/checkout' exact isSignedIn={this.props.isSignedIn} component={Checkout}/>
+                    <PrivateRoute path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
+                    <PrivateRoute path='/store' exact isSignedIn={this.props.isSignedIn} component={Store}/>
+                    <PrivateRoute path='/cocktails' exact isSignedIn={this.props.isSignedIn} component={Store}/>
+                    <PrivateRoute path='/checkout' exact isSignedIn={this.props.isSignedIn} component={Checkout}/>
                 </Switch>
             </Container>
         );

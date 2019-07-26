@@ -17,10 +17,19 @@ const Header = (props)=>{
             </Menu.Item>
             <Menu.Menu position='right'>
                 <Menu.Item >
+                    <Link to="/store">
+                        <Icon name="shopping basket"/>
+                        Store
+                    </Link>
+                    <Link to="/cocktails">
+                        <Icon name="cocktail"/>
+                        Cocktails
+                    </Link>
                     <Link to="/cart">
                         <Icon name="shopping cart"/>
                         Cart
                     </Link>
+
                 </Menu.Item>
                 <Menu.Item>
                     <Auth/>
