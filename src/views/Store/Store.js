@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {addItemToCart} from "../../actions/cartActions";
-import {fetchStore} from "../../actions/storeActions";
+import {fetchStore, removeItemFromStore} from "../../actions/storeActions";
 import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 
@@ -18,11 +18,20 @@ class Store extends React.Component{
 
     renderItem = (item)=>{
         return  <Card
+            key={item.itemId}
             image={item.image}
             header={item.name}
             meta={item.category}
             description={item.description}
-            extra={<Button onClick={()=>this.props.addItemToCart(item, 1)} icon="cart" content='Add Item to Cart' floated="right" />}
+            extra={
+                <div>
+                    {this.props.user.isAdmin &&
+                            <Button onClick={()=>this.props.removeItemFromStore(item.itemId)} color="red" icon="trash" content='Delete Item' floated="left" />
+                    }
+
+                    <Button onClick={()=>this.props.addItemToCart(item, 1)} color="green" icon="cart" content='Add Item to Cart' floated="right" />
+                </div>
+            }
             />
     };
 
@@ -39,7 +48,9 @@ class Store extends React.Component{
 }
 
 const mapStateToProp = (state) =>{
-    return { store: state.store}
+    return { store: state.store,
+            user:state.auth.profileDetails
+    }
 };
 
-export default connect(mapStateToProp, {addItemToCart, fetchStore})(Store)
+export default connect(mapStateToProp, {addItemToCart, fetchStore, removeItemFromStore})(Store)
