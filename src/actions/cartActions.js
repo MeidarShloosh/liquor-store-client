@@ -9,12 +9,12 @@ import liquorStoreApi from '../apis/liquorStoreApi'
 
 
 
-export const addItemToCart = (itemId, quantity) => async (dispatch, getState) => {
-    const response = await liquorStoreApi.put(`/addItemToCart`,{itemId: itemId, quantity: quantity});
+export const addItemToCart = (item,quantity) => async (dispatch, getState) => {
+    const response = await liquorStoreApi.put(`/addItemToCart`,{itemId: item.itemId, quantity: quantity});
 
     dispatch({
         type: ADD_ITEM_TO_CART,
-        payload: item
+        payload: {...item, quantity}
     })
 };
 

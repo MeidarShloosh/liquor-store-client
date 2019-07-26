@@ -17,7 +17,20 @@ class Auth extends React.Component{
         }else{
             this.props.signOut();
         }
+        setInterval(this.checkSession, 5*60*1000);
     }
+
+    checkSession = ()=>{
+        const {cookies} = this.props;
+        const session = cookies.get('session');
+
+        if(session !== undefined){
+            if(!this.props.isSignedIn)
+                this.props.signIn();
+        }else{
+            this.props.signOut();
+        }
+    };
 
     renderAuthButton(){
         if(this.props.isSignedIn)

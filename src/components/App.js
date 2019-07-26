@@ -6,6 +6,8 @@ import {connect} from "react-redux";
 import PrivateRoute from "./PrivateRoute";
 import Cart from "../views/Cart/Cart";
 import Spinner from "./Spinner";
+import Checkout from "../views/Checkout/Checkout";
+import Store from "../views/Store/Store";
 
 class App extends React.Component{
 
@@ -24,7 +26,8 @@ class App extends React.Component{
                 {this.renderSpinner()}
                 <Switch>
                     <Route path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
-                    <Route path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
+                    <Route path='/store' exact isSignedIn={this.props.isSignedIn} component={Store}/>
+                    <Route path='/checkout' exact isSignedIn={this.props.isSignedIn} component={Checkout}/>
                 </Switch>
             </Container>
         );

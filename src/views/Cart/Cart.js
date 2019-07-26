@@ -10,7 +10,7 @@ class Cart extends React.Component{
     }
 
     renderCartRows(){
-        return this.props.cart.map(({itemId, image, category, description, quantity})=>(
+        return this.props.cart.map(({itemId, name, image, category, description, quantity})=>(
             <Table.Row>
                 <Table.Cell>
                     <Image src={image} size="small"/>
