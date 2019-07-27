@@ -41,6 +41,12 @@ class Cart extends React.Component{
     }
 
     render() {
+        if(this.props.cart.length == 0){
+            return  <Header as='h2'  textAlign='center'>
+                        <Header.Content>The Cart Is Empty.</Header.Content>
+                    </Header>
+        }
+
         return (
             <div>
                 <Header as="h2">Shopping Cart</Header>
