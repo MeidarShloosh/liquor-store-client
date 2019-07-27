@@ -10,7 +10,7 @@ import liquorStoreApi from '../apis/liquorStoreApi'
 
 
 export const addItemToCart = (item,quantity) => async (dispatch, getState) => {
-    const response = await liquorStoreApi.put(`/addItemToCart`,{itemId: item.itemId, quantity: quantity});
+    await liquorStoreApi.put(`/addItemToCart`,{itemId: item.itemId, quantity: quantity});
 
     dispatch({
         type: ADD_ITEM_TO_CART,
@@ -19,7 +19,7 @@ export const addItemToCart = (item,quantity) => async (dispatch, getState) => {
 };
 
 export const updateCartItemQuantity = (itemId, quantity) => async (dispatch, getState) => {
-    const response = await liquorStoreApi.post(`/updateCartItemQuantity`,{itemId, quantity});
+    await liquorStoreApi.post(`/updateCartItemQuantity`,{itemId, quantity});
 
     dispatch({
         type: UPDATE_ITEM_QUANTITY,
@@ -30,7 +30,7 @@ export const updateCartItemQuantity = (itemId, quantity) => async (dispatch, get
 
 
 export const removeItemFromCart = itemId => async (dispatch, getState) => {
-    const response = await liquorStoreApi.delete(`/removeItemFromCart/${itemId}`);
+    await liquorStoreApi.delete(`/removeItemFromCart/${itemId}`);
 
     dispatch({
         type: REMOVE_ITEM_FROM_CART,
@@ -48,7 +48,7 @@ export const fetchCart = () => async dispatch => {
 
 
 export const checkout = () => async dispatch => {
-    const response = await liquorStoreApi.post('/checkout');
+    await liquorStoreApi.post('/checkout');
     dispatch({
         type: CHECKOUT
     })

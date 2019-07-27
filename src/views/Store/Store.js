@@ -9,7 +9,7 @@ class Store extends React.Component{
     state = {isLoading: true}
 
     componentDidMount(){
-        if(this.props.store.length == 0){
+        if(this.props.store.length === 0){
             this.props.fetchStore();
         }
         this.setState({isLoading: false})

@@ -32,7 +32,7 @@ class SearchableCardDec extends Component{
             return <Spinner text={this.props.loadingMessage} style={{height: "100vh"}}/>
         }
 
-        if(this.props.items.length == 0){
+        if(this.props.items.length === 0){
             return (
                 <Grid style={{marginTop: "30vh"}}>
                     <Grid.Row>

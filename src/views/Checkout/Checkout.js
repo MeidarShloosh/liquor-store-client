@@ -1,8 +1,7 @@
 import React from 'react'
-import {Button, Header, Icon, Table, Image, Input, Message} from "semantic-ui-react";
+import {Button, Header, Icon, Table, Image, Message} from "semantic-ui-react";
 import {connect} from "react-redux";
-import {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart, checkout} from "../../actions/cartActions";
-import {Link} from "react-router-dom";
+import {fetchCart, checkout} from "../../actions/cartActions";
 
 class Checkout extends React.Component{
     state = {checkedOut: false};

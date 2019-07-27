@@ -20,7 +20,7 @@ export const signIn = () => async (dispatch, getState) => {
 
 export const signOut = () => async (dispatch, getState) => {
     try {
-        const response = await liquorStoreApi.post(`/logout`);
+        await liquorStoreApi.post(`/logout`);
     }
     catch (e) {
 

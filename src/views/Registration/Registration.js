@@ -2,8 +2,7 @@ import React from 'react';
 import {signIn} from '../../actions/authActions'
 import {connect} from "react-redux";
 import {withCookies} from "react-cookie";
-import {NavLink} from "react-router-dom";
-import {Button, Form, Grid, Header, Image, Message, Segment, Container, Checkbox} from 'semantic-ui-react'
+import {Button, Form, Grid, Header, Message, Segment, Container, Checkbox} from 'semantic-ui-react'
 import liquorStoreApi from "../../apis/liquorStoreApi";
 import './Registration.css'
 import history from "../../history";
@@ -35,7 +34,7 @@ class Registration extends React.Component{
         }
 
         try{
-            const response = await liquorStoreApi.post('/registration',
+            await liquorStoreApi.post('/registration',
                 {username, password, rememberMe,withCredentials: true, headers: { crossDomain: true}});
 
             this.props.signIn();
