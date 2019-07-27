@@ -11,6 +11,7 @@ class Checkout extends React.Component{
     }
 
     renderCartRows(){
+        this.total = 0;
         return this.props.cart.map(({itemId, name, image, category, price, quantity})=> {
             this.total += price * quantity;
 
