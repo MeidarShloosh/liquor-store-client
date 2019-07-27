@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container} from "semantic-ui-react";
 import Header from "./Header";
-import {Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import PrivateRoute from "./PrivateRoute";
 import Cart from "../views/Cart/Cart";
@@ -27,10 +27,12 @@ class App extends React.Component{
                 {this.renderSpinner()}
                 <Switch>
                     <PrivateRoute path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
-                    <PrivateRoute path='/store' exact isSignedIn={this.props.isSignedIn} component={Store}/>
-                    <PrivateRoute path='/cocktails' exact isSignedIn={this.props.isSignedIn} component={Store}/>
+                    <Route path='/store' exact component={Store}/>
+                    <Route path='/cocktails' exact component={Store}/>
                     <PrivateRoute path='/checkout' exact isSignedIn={this.props.isSignedIn} component={Checkout}/>
                     <PrivateRoute path='/admin' exact isSignedIn={this.props.isSignedIn} component={Admin}/>
+                    <Route path='/' exact  component={Store}/>
+
                 </Switch>
             </Container>
         );

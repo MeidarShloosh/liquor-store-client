@@ -15,6 +15,17 @@ class Store extends React.Component{
 
     };
 
+    renderExtra(cocktail){
+        if(!this.props.isSignedIn) return null;
+
+        return (
+            <div>
+                <Button onClick={() => this.props.addCocktailToCart(cocktail)} color="green" icon="cart"
+                        content='Add cocktail to Cart' floated="right"/>
+            </div>
+        );
+    }
+
     renderCocktail = (cocktail)=>{
         return  <Card
             key={cocktail.cocktailId}
@@ -29,11 +40,7 @@ class Store extends React.Component{
                     <strong>Price: {cocktail.price} NIS</strong>
                 </div>
             }
-            extra={
-                <div>
-                    <Button onClick={()=>this.props.addCocktailToCart(cocktail)} color="green" icon="cart" content='Add cocktail to Cart' floated="right" />
-                </div>
-            }
+            extra={this.renderExtra(cocktail)}
         />
     };
 
@@ -51,7 +58,7 @@ class Store extends React.Component{
 
 const mapStateToProp = (state) =>{
     return { cocktails: state.cocktails,
-        user:state.auth.profileDetails
+        isSignedIn:state.auth.isSignedIn,
     }
 };
 

@@ -16,6 +16,24 @@ class Store extends React.Component{
 
     };
 
+    renderExtra(item){
+        if(!this.props.isSignedIn) return null;
+        return (
+            <div>
+                {
+                    this.props.user.isAdmin &&
+                        <Button onClick={() => this.props.removeItemFromStore(item.itemId)} color="red"
+                                icon="trash"
+                                content='Delete Item' floated="left"/>
+                }
+
+                    <Button onClick={() => this.props.addItemToCart(item, 1)} color="green" icon="cart"
+                    content='Add Item to Cart' floated="right"/>
+                }
+            </div>
+        );
+    };
+
     renderItem = (item)=>{
         return  <Card
             key={item.itemId}
@@ -23,15 +41,7 @@ class Store extends React.Component{
             header={item.name}
             meta={item.category}
             description={`Price: ${item.price} NIS`}
-            extra={
-                <div>
-                    {this.props.user.isAdmin &&
-                            <Button onClick={()=>this.props.removeItemFromStore(item.itemId)} color="red" icon="trash" content='Delete Item' floated="left" />
-                    }
-
-                    <Button onClick={()=>this.props.addItemToCart(item, 1)} color="green" icon="cart" content='Add Item to Cart' floated="right" />
-                </div>
-            }
+            extra={this.renderExtra(item)}
             />
     };
 
@@ -49,7 +59,8 @@ class Store extends React.Component{
 
 const mapStateToProp = (state) =>{
     return { store: state.store,
-            user:state.auth.profileDetails
+            user:state.auth.profileDetails,
+            isSignedIn: state.auth.isSignedIn
     }
 };
 

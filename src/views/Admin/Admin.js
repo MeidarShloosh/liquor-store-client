@@ -1,7 +1,7 @@
 import React from 'react'
 import history from '../../history'
 import {connect} from "react-redux";
-import {Icon, List, Header, Button} from "semantic-ui-react";
+import {List, Header, Button} from "semantic-ui-react";
 import liquorStoreApi from "../../apis/liquorStoreApi";
 
 class Admin extends React.Component{
