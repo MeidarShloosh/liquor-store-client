@@ -13,24 +13,35 @@ const Header = (props)=>{
                 <Image size="tiny" src={logo}/>
             </Menu.Item>
             <Menu.Item>
-                {props.username &&  `Hello, ${props.username}` }
+                {props.user.username &&  `Hello, ${props.user.username}` }
             </Menu.Item>
             <Menu.Menu position='right'>
+                {props.user.isAdmin &&
+                    <Menu.Item>
+                        <Link to="/admin" style={{color: "black"}}>
+                            Admin Panel
+                        </Link>
+                    </Menu.Item>
+                }
                 <Menu.Item >
-                    <Link to="/store">
+                    <Link to="/store" style={{color:"black"}}>
                         <Icon name="shopping basket"/>
                         Store
                     </Link>
-                    <Link to="/cocktails">
+                </Menu.Item>
+                <Menu.Item>
+                    <Link to="/cocktails" style={{color:"black"}}>
                         <Icon name="cocktail"/>
                         Cocktails
                     </Link>
-                    <Link to="/cart">
+                </Menu.Item>
+                <Menu.Item>
+                    <Link to="/cart" style={{color:"black"}}>
                         <Icon name="shopping cart"/>
                         Cart
                     </Link>
-
                 </Menu.Item>
+
                 <Menu.Item>
                     <Auth/>
                 </Menu.Item>
@@ -42,8 +53,8 @@ const Header = (props)=>{
 const mapStateToProps = ({auth})=>{
 
     if(auth.isSignedIn)
-        return {username: auth.profileDetails.username};
+        return {user: auth.profileDetails};
     else
-        return {};
+        return {user:{}};
 };
 export default connect(mapStateToProps)(Header);

@@ -1,13 +1,14 @@
 import React from 'react';
 import {Container} from "semantic-ui-react";
 import Header from "./Header";
-import { Route, Switch} from "react-router-dom";
+import {Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import PrivateRoute from "./PrivateRoute";
 import Cart from "../views/Cart/Cart";
 import Spinner from "./Spinner";
 import Checkout from "../views/Checkout/Checkout";
 import Store from "../views/Store/Store";
+import Admin from "../views/Admin/Admin";
 
 class App extends React.Component{
 
@@ -29,6 +30,7 @@ class App extends React.Component{
                     <PrivateRoute path='/store' exact isSignedIn={this.props.isSignedIn} component={Store}/>
                     <PrivateRoute path='/cocktails' exact isSignedIn={this.props.isSignedIn} component={Store}/>
                     <PrivateRoute path='/checkout' exact isSignedIn={this.props.isSignedIn} component={Checkout}/>
+                    <PrivateRoute path='/admin' exact isSignedIn={this.props.isSignedIn} component={Admin}/>
                 </Switch>
             </Container>
         );

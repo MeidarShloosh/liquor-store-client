@@ -1,6 +1,6 @@
 import  React,{Component} from 'react'
 
-import {Card, Grid} from 'semantic-ui-react'
+import {Card, Grid, Header} from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import Spinner from "./Spinner";
 
@@ -34,13 +34,11 @@ class SearchableCardDec extends Component{
 
         if(this.props.items.length === 0){
             return (
-                <Grid style={{marginTop: "30vh"}}>
-                    <Grid.Row>
-                        <Grid.Column width={6} className="text-center">
-                            <h3 className="text-secondary">{this.props.noItemsMessage}</h3>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
+                <div style={{marginTop: "30vh"}}>
+                    <Header as='h2'  textAlign='center'>
+                        <Header.Content>{this.props.noItemsMessage}</Header.Content>
+                    </Header>
+                </div>
             );
         }
         return (

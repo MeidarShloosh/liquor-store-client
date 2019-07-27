@@ -36,7 +36,10 @@ class Login extends React.Component{
             history.push('/');
         }
         catch (e) {
-            this.setState({errMessage: e.response.data});
+            if(e.response)
+                this.setState({errMessage: e.response.data});
+            else
+                this.setState({errMessage: "An error occurred while trying to log you in."})
         }
     };
 

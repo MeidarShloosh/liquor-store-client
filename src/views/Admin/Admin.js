@@ -45,10 +45,14 @@ class Admin extends React.Component{
     }
 
     render() {
-        if(this.props.state.length == 0){
-            return  <Header as='h2'  textAlign='center'>
-                        <Header.Content>No Logs Found.</Header.Content>
+        if(this.state.logs.length === 0){
+            return(
+                <div style={{marginTop: "30vh"}}>
+                    <Header as='h2'  textAlign='center'>
+                        <Header.Content>No logs Found.</Header.Content>
                     </Header>
+                </div>
+            )
         }
 
         return (
