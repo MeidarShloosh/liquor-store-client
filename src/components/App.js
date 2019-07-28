@@ -9,6 +9,8 @@ import Spinner from "./Spinner";
 import Checkout from "../views/Checkout/Checkout";
 import Store from "../views/Store/Store";
 import Admin from "../views/Admin/Admin";
+import Accessories from "../views/Accessories/Accessories";
+import Snacks from "../views/Snacks/Snacks";
 
 class App extends React.Component{
 
@@ -28,6 +30,8 @@ class App extends React.Component{
                 <Switch>
                     <PrivateRoute path='/cart' exact isSignedIn={this.props.isSignedIn} component={Cart}/>
                     <Route path='/store' exact component={Store}/>
+                    <Route path='/accessories' exact component={Accessories}/>
+                    <Route path='/snacks' exact component={Snacks}/>
                     <Route path='/cocktails' exact component={Store}/>
                     <PrivateRoute path='/checkout' exact isSignedIn={this.props.isSignedIn} component={Checkout}/>
                     <PrivateRoute path='/admin' exact isSignedIn={this.props.isSignedIn} component={Admin}/>

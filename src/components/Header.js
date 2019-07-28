@@ -35,6 +35,16 @@ const Header = (props)=>{
                         Cocktails
                     </Link>
                 </Menu.Item>
+                <Menu.Item >
+                    <Link to="/snacks" style={{color:"black"}}>
+                        Snacks
+                    </Link>
+                </Menu.Item>
+                <Menu.Item >
+                    <Link to="/accessories" style={{color:"black"}}>
+                        Accessories
+                    </Link>
+                </Menu.Item>
                 <Menu.Item>
                     <Link to="/cart" style={{color:"black"}}>
                         <Icon name="shopping cart"/>
