@@ -27,7 +27,7 @@ class Cart extends React.Component{
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
                     <Input type="number" value={quantity}
-                           onChange={e => this.props.updateCartItemQuantity(itemId, e.target.value)} max="19" min="0"/>
+                           onChange={e => this.props.updateCartItemQuantity(itemId, e.target.value)} max="19" min="1"/>
                 </Table.Cell>
                 <Table.Cell>
                     {quantity * price}
