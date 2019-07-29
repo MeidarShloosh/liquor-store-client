@@ -19,7 +19,7 @@ export const addItemToStore = item => async (dispatch, getState) => {
 };
 
 export const updateStoreItem = item => async (dispatch, getState) => {
-    await liquorStoreApi.update(`/updateStoreItem`,{item});
+    await liquorStoreApi.post(`/updateStoreItem`,{item});
 
     dispatch({
         type: UPDATE_STORE_ITEM,
