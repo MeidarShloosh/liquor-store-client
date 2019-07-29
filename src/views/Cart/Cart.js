@@ -15,7 +15,7 @@ class Cart extends React.Component{
         return this.props.cart.map(({itemId, name, image, category, price, quantity})=> {
             this.total += price * quantity;
 
-            return <Table.Row>
+            return <Table.Row key={itemId}>
                 <Table.Cell>
                     <Image src={image} size="small"/>
                 </Table.Cell>

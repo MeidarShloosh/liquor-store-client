@@ -17,7 +17,7 @@ export default (store = [], action) => {
         case FETCH_STORE:
             return [...action.payload];
         case REMOVE_ITEM_FROM_STORE:
-            return _.remove(store, item=> item.itemId === action.payload);
+            return [..._.remove(store, item=> item.itemId === action.payload)];
         default:
             return store;
     }

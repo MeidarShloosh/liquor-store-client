@@ -13,7 +13,7 @@ export const fetchCocktails = () => async dispatch => {
 
 
 export const addCocktailToCart = cocktail => async (dispatch, getState) => {
-    const response = await liquorStoreApi.put(`/addCocktailToCart`,{cocktailId: cocktail.cocktailId});
+    const response = await liquorStoreApi.put(`/addCocktailToCart`,{cocktailId: cocktail.itemId});
 
     cocktail.items.forEach(item => {
         dispatch({
