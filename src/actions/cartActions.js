@@ -19,6 +19,7 @@ export const addItemToCart = (item,quantity) => async (dispatch, getState) => {
 };
 
 export const updateCartItemQuantity = (itemId, quantity) => async (dispatch, getState) => {
+    console.log(quantity);
     await liquorStoreApi.post(`/updateCartItemQuantity`,{itemId, quantity});
 
     dispatch({

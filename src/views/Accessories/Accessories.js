@@ -5,6 +5,7 @@ import {removeItemFromStore} from "../../actions/storeActions";
 import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 import {fetchAccessories} from "../../actions/accessoriesActions";
+import history from "../../history";
 
 class Accessories extends React.Component{
     state = {isLoading: true};
@@ -17,20 +18,17 @@ class Accessories extends React.Component{
 
     };
 
+    onAddItemToCart(item){
+        this.props.addItemToCart(item, 1)
+        history.push('/cart')
+    };
+
     renderExtra(item){
         if(!this.props.isSignedIn) return null;
         return (
             <div>
-                {
-                    this.props.user.isAdmin &&
-                        <Button size="tiny"  onClick={() => this.props.removeItemFromStore(item.itemId)} color="red"
-                                icon="trash"
-                                content='Delete Item' floated="left"/>
-                }
-
-                    <Button size="tiny"  onClick={() => this.props.addItemToCart(item, 1)} color="green" icon="cart"
-                    content='Add to Cart' floated="right"/>
-
+                <Button size="tiny"  onClick={() => this.onAddItemToCart(item)} color="green" icon="cart"
+                content='Add to Cart' floated="right"/>
             </div>
         );
     };

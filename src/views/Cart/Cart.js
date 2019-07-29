@@ -7,7 +7,8 @@ import {Link} from "react-router-dom";
 class Cart extends React.Component{
     total = 0;
     componentDidMount() {
-        this.props.fetchCart();
+        if(!this.props.cart.length)
+            this.props.fetchCart();
     }
 
     renderCartRows(){

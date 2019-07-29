@@ -17,12 +17,14 @@ export default (cart = [], action) => {
                     return newCart;
                 }
             }
+
             return [...cart, action.payload];
         case UPDATE_ITEM_QUANTITY:
             for (let i = 0; i < cart.length; i++) {
                 if(cart[i].itemId === action.payload.itemId){
                     let newCart = [...cart];
                     newCart[i].quantity = action.payload.quantity;
+
                     return newCart;
                 }
             }

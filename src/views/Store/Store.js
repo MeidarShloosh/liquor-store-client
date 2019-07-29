@@ -25,12 +25,6 @@ class Store extends React.Component{
         if(!this.props.isSignedIn) return null;
         return (
             <div>
-                {
-                    this.props.user.isAdmin &&
-                        <Button size="tiny" onClick={() => this.props.removeItemFromStore(item.itemId)} color="red"
-                                icon="trash"
-                                content='Delete Item' floated="left"/>
-                }
 
                     <Button size="tiny" onClick={() => this.onAddItemToCart(item)} color="green" icon="cart"
                     content='Add to Cart' floated="right"/>

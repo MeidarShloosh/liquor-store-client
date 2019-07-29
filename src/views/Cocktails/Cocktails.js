@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {fetchCocktails, addCocktailToCart } from "../../actions/cocktailActions";
 import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
+import history from "../../history";
 
 class Cocktails extends React.Component{
     state = {isLoading: true}
@@ -15,18 +16,17 @@ class Cocktails extends React.Component{
 
     };
 
+    onAddItemToCart(cocktail){
+        this.props.addCocktailToCart(cocktail);
+        history.push('/cart')
+    };
+
     renderExtra(cocktail){
         if(!this.props.isSignedIn) return null;
 
         return (
             <div>
-                {
-                    this.props.user.isAdmin &&
-                    <Button  size="tiny" onClick={() => this.props.removeItemFromStore(cocktail.itemId)} color="red"
-                             icon="trash"
-                             content='Delete Item' floated="left"/>
-                }
-                <Button size="tiny" onClick={() => this.props.addCocktailToCart(cocktail)} color="green" icon="cart"
+                <Button size="tiny" onClick={() => this.onAddItemToCart(cocktail)} color="green" icon="cart"
                         content='Add to Cart' floated="right"/>
             </div>
         );
