@@ -11,6 +11,7 @@ import Store from "../views/Store/Store";
 import Admin from "../views/Admin/Admin";
 import Accessories from "../views/Accessories/Accessories";
 import Snacks from "../views/Snacks/Snacks";
+import Cocktails from "../views/Cocktails/Cocktails";
 
 class App extends React.Component{
 
@@ -32,7 +33,7 @@ class App extends React.Component{
                     <Route path='/store' exact component={Store}/>
                     <Route path='/accessories' exact component={Accessories}/>
                     <Route path='/snacks' exact component={Snacks}/>
-                    <Route path='/cocktails' exact component={Store}/>
+                    <Route path='/cocktails' exact component={Cocktails}/>
                     <PrivateRoute path='/checkout' exact isSignedIn={this.props.isSignedIn} component={Checkout}/>
                     <PrivateRoute path='/admin' exact isSignedIn={this.props.isSignedIn} component={Admin}/>
                     <Route path='/' exact  component={Store}/>

@@ -4,7 +4,7 @@ import {fetchCocktails, addCocktailToCart } from "../../actions/cocktailActions"
 import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 
-class Store extends React.Component{
+class Cocktails extends React.Component{
     state = {isLoading: true}
 
     componentDidMount(){
@@ -20,8 +20,14 @@ class Store extends React.Component{
 
         return (
             <div>
-                <Button onClick={() => this.props.addCocktailToCart(cocktail)} color="green" icon="cart"
-                        content='Add cocktail to Cart' floated="right"/>
+                {
+                    this.props.user.isAdmin &&
+                    <Button  size="tiny" onClick={() => this.props.removeItemFromStore(cocktail.itemId)} color="red"
+                             icon="trash"
+                             content='Delete Item' floated="left"/>
+                }
+                <Button size="tiny" onClick={() => this.props.addCocktailToCart(cocktail)} color="green" icon="cart"
+                        content='Add to Cart' floated="right"/>
             </div>
         );
     }
@@ -45,12 +51,12 @@ class Store extends React.Component{
     };
 
     render() {
-        <SearchableCardDec
+        return <SearchableCardDec
             isLoading={this.state.isLoading}
-            itemRender={this.renderCocktail}
+            renderItem={this.renderCocktail}
             loadingMessage="Loading cocktails"
             items={this.props.cocktails}
-            itemsPerRow={5}
+            itemsPerRow={4}
             noItemsMessage="No Items Found."
         />
     }
@@ -58,8 +64,9 @@ class Store extends React.Component{
 
 const mapStateToProp = (state) =>{
     return { cocktails: state.cocktails,
+        user:state.auth.profileDetails,
         isSignedIn:state.auth.isSignedIn,
     }
 };
 
-export default connect(mapStateToProp, {addCocktailToCart, fetchCocktails})(Store)
+export default connect(mapStateToProp, {addCocktailToCart, fetchCocktails})(Cocktails)
