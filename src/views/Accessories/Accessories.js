@@ -23,14 +23,14 @@ class Accessories extends React.Component{
             <div>
                 {
                     this.props.user.isAdmin &&
-                        <Button onClick={() => this.props.removeItemFromStore(item.itemId)} color="red"
+                        <Button size="tiny"  onClick={() => this.props.removeItemFromStore(item.itemId)} color="red"
                                 icon="trash"
                                 content='Delete Item' floated="left"/>
                 }
 
-                    <Button onClick={() => this.props.addItemToCart(item, 1)} color="green" icon="cart"
-                    content='Add Item to Cart' floated="right"/>
-                }
+                    <Button size="tiny"  onClick={() => this.props.addItemToCart(item, 1)} color="green" icon="cart"
+                    content='Add to Cart' floated="right"/>
+
             </div>
         );
     };
@@ -49,10 +49,10 @@ class Accessories extends React.Component{
     render() {
         return <SearchableCardDec
             isLoading={this.state.isLoading}
-            itemRender={this.renderItem}
+            renderItem={this.renderItem}
             loadingMessage="Loading Store"
             items={this.props.accessories}
-            itemsPerRow={5}
+            itemsPerRow={4}
             noItemsMessage="No Accessories Found."
         />
     }
