@@ -1,11 +1,11 @@
 import React from 'react'
 import history from '../../history'
 import {connect} from "react-redux";
-import {List, Header, Button} from "semantic-ui-react";
+import {List, Header, Button, Grid} from "semantic-ui-react";
 import liquorStoreApi from "../../apis/liquorStoreApi";
 
 class Admin extends React.Component{
-    state = {logs:[], currentBatch:0, searchText:""};
+    state = {logs:[], currentBatch:-1, searchText:""};
     componentDidMount() {
         if(!this.props.user.isAdmin){
             history.push('/')
@@ -28,14 +28,22 @@ class Admin extends React.Component{
 
             return(
                 <List.Item>
-                    <List.Icon name="user circle"/>
+                    <List.Icon size='large' verticalAlign='middle' name="user circle"/>
                     <List.Content>
                         <List.Header>
                             {log.username}
-                            <Header.Subheader>{new Date(log.time).toString()}</Header.Subheader>
                         </List.Header>
                         <List.Description>
-                            {log.description}
+                            <Grid divided='vertically'>
+                                <Grid.Row>
+                                    <Grid.Column width={12}>
+                                        {log.description}
+                                    </Grid.Column>
+                                    <Grid.Column width={4}>
+                                        {log.time}
+                                    </Grid.Column>
+                                </Grid.Row>
+                            </Grid>
                         </List.Description>
                     </List.Content>
                 </List.Item>
@@ -69,11 +77,12 @@ class Admin extends React.Component{
                 />
                 <i aria-hidden="true" className="search icon"></i>
             </div>
-            <List>
+            <List divided>
                 {this.renderList()}
             </List>
             <Button floated='right' onClick={this.fetchNextLogsBatch} color="green" labelPosition='right' icon='right chevron'>Next</Button>
-        </div>);
+        </div>
+        );
     }
 }
 
