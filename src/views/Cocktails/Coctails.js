@@ -28,14 +28,14 @@ class Store extends React.Component{
 
     renderCocktail = (cocktail)=>{
         return  <Card
-            key={cocktail.cocktailId}
+            key={cocktail.itemId}
             image={cocktail.image}
             header={cocktail.name}
             meta="Cocktails"
             description={
                 <div>
                     <p>
-                    cocktail.description
+                        {cocktail.description}
                     </p>
                     <strong>Price: {cocktail.price} NIS</strong>
                 </div>
