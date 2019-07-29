@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Header, Icon, Table, Image, Input} from "semantic-ui-react";
 import {connect} from "react-redux";
-import {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart, checkout} from "../../actions/cartActions";
+import {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart} from "../../actions/cartActions";
 import {Link} from "react-router-dom";
 
 class Cart extends React.Component{
@@ -98,4 +98,4 @@ const mapStateToProp= (state) =>{
     return {cart: state.cart};
 };
 
-export default connect(mapStateToProp, {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart, checkout})(Cart);
+export default connect(mapStateToProp, {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart})(Cart);
