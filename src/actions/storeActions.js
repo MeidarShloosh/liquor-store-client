@@ -40,10 +40,9 @@ export const removeItemFromStore = itemId => async (dispatch, getState) => {
 
 export const fetchStore = () => async dispatch => {
     const response = await liquorStoreApi.get('/store');
-    console.log(response.data);
     dispatch({
         type: FETCH_STORE,
-        payload: response.data.Store
+        payload: response.data
     })
 };
 

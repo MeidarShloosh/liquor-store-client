@@ -40,7 +40,6 @@ export const removeItemFromCart = itemId => async (dispatch, getState) => {
 
 export const fetchCart = () => async dispatch => {
     const response = await liquorStoreApi.get('/cart');
-    console.log(response)
     dispatch({
         type: FETCH_CART,
         payload: response.data

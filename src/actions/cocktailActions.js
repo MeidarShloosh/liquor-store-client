@@ -6,7 +6,7 @@ export const fetchCocktails = () => async dispatch => {
     const response = await liquorStoreApi.get('/cocktails');
     dispatch({
         type: FETCH_COCKTAILS,
-        payload: response.data.Cocktails
+        payload: response.data
     })
 };
 

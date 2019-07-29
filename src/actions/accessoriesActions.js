@@ -10,7 +10,7 @@ export const fetchAccessories = () => async dispatch => {
     const response = await liquorStoreApi.get('/accessories');
     dispatch({
         type: FETCH_ACCESSORIES,
-        payload: response.data.Accessories
+        payload: response.data
     })
 };
 
