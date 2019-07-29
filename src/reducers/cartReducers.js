@@ -22,7 +22,7 @@ export default (cart = [], action) => {
             for (let i = 0; i < cart.length; i++) {
                 if(cart[i].itemId === action.payload.itemId){
                     let newCart = [...cart];
-                    newCart[i].quantity += action.payload.quantity;
+                    newCart[i].quantity = action.payload.quantity;
                     return newCart;
                 }
             }
