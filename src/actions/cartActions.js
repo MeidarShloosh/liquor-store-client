@@ -42,7 +42,7 @@ export const fetchCart = () => async dispatch => {
     const response = await liquorStoreApi.get('/cart');
     dispatch({
         type: FETCH_CART,
-        payload: response.data
+        payload: response.data.Cart
     })
 };
 
