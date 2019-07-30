@@ -2,12 +2,15 @@ import React from 'react'
 import {Button, Header, Icon, Table, Image, Message} from "semantic-ui-react";
 import {connect} from "react-redux";
 import {fetchCart, checkout} from "../../actions/cartActions";
+import history from '../../history'
 
 class Checkout extends React.Component{
     state = {checkedOut: false};
     total = 0;
+
     componentDidMount() {
-        this.props.fetchCart();
+        if(!this.props.cart)
+            this.props.fetchCart();
     }
 
     renderCartRows(){
@@ -38,12 +41,16 @@ class Checkout extends React.Component{
     }
     onCheckout = ()=>{
       this.props.checkout();
-      this.setState({checkout: true})
+      this.setState({checkedOut: true});
+      setTimeout(()=> history.push('/cart'), 2000)
     };
+
     render() {
+        if(this.props.cart && this.props.cart.length === 0 &&!this.state.checkedOut)
+            history.push('/cart')
         return (
             <div>
-                <Header as="h2">Shopping Cart</Header>
+                <Header as="h2">Checkout</Header>
                 <Table celled padded>
                     <Table.Header>
                         <Table.Row>
@@ -72,7 +79,7 @@ class Checkout extends React.Component{
                             <Table.HeaderCell />
                             <Table.HeaderCell colSpan='5' textAlign='center'>
                                 <Button   floated='right' color="green" onClick={this.onCheckout} icon labelPosition='left'  size='large'>
-                                    <Icon name='shopping cart' /> Checkout
+                                    <Icon name='shopping cart' /> Confirm Checkout
                                 </Button>
                             </Table.HeaderCell>
                         </Table.Row>

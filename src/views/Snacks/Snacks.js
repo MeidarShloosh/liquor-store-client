@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {addItemToCart} from "../../actions/cartActions";
-import {removeItemFromStore} from "../../actions/storeActions";
 import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 import {fetchSnacks} from "../../actions/snacksActions";
@@ -65,4 +64,4 @@ const mapStateToProp = (state) =>{
     }
 };
 
-export default connect(mapStateToProp, {addItemToCart, fetchSnacks, removeItemFromStore})(Snacks)
+export default connect(mapStateToProp, {addItemToCart, fetchSnacks})(Snacks)

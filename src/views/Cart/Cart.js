@@ -84,7 +84,9 @@ class Cart extends React.Component{
                         <Table.Row>
                             <Table.HeaderCell colSpan='6'>
                                 <Link to='/checkout' floated='right' color="green"  icon labelPosition='left'  size='small'>
-                                    <Icon name='shopping cart' /> Checkout
+                                    <Button   floated='right' color="green" onClick={this.onCheckout} icon labelPosition='left'  size='large'>
+                                        <Icon name='shopping cart' /> Checkout
+                                    </Button>
                                 </Link>
                             </Table.HeaderCell>
                         </Table.Row>

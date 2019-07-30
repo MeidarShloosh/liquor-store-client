@@ -25,7 +25,7 @@ class App extends React.Component{
     render(){
 
         return (
-            <Container>
+            <Container style={{paddingBottom: "75px"}}>
                 <Header/>
                 {this.renderSpinner()}
                 <Switch>
