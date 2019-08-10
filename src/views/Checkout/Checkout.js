@@ -3,6 +3,7 @@ import {Button, Header, Icon, Table, Image, Message} from "semantic-ui-react";
 import {connect} from "react-redux";
 import {fetchCart, checkout} from "../../actions/cartActions";
 import history from '../../history'
+import liquorStoreApi from "../../apis/liquorStoreApi";
 
 class Checkout extends React.Component{
     state = {checkedOut: false};
@@ -20,7 +21,7 @@ class Checkout extends React.Component{
 
             return <Table.Row>
                 <Table.Cell>
-                    <Image src={image} size="small"/>
+                    <Image src={liquorStoreApi.defaults.baseURL + "/" +image} size="small"/>
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
                     {name}

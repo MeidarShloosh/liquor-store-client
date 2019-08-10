@@ -5,6 +5,7 @@ import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 import history from "../../history";
 import './Cocktails.css'
+import liquorStoreApi from "../../apis/liquorStoreApi";
 
 class Cocktails extends React.Component{
     state = {isLoading: true}
@@ -36,7 +37,7 @@ class Cocktails extends React.Component{
     renderCocktail = (cocktail)=>{
         return  <Card
             key={cocktail.itemId}
-            image={cocktail.image}
+            image={liquorStoreApi.defaults.baseURL + "/" +cocktail.image}
             header={cocktail.name}
             meta="Cocktails"
             description={

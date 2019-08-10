@@ -7,6 +7,7 @@ import {Button, Card} from "semantic-ui-react";
 import history from '../../history'
 import './Store.css'
 import _ from 'lodash'
+import liquorStoreApi from '../../apis/liquorStoreApi'
 
 class Store extends React.Component{
     state = {isLoading: true}
@@ -38,7 +39,7 @@ class Store extends React.Component{
     renderItem = (item)=>{
         return  <Card
             key={item.itemId}
-            image={item.image}
+            image={liquorStoreApi.defaults.baseURL + "/" + item.image}
             header={item.name}
             meta={item.category}
             description={`Price: ${item.price} NIS`}

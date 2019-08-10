@@ -5,6 +5,7 @@ import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 import {fetchSnacks} from "../../actions/snacksActions";
 import history from "../../history";
+import liquorStoreApi from "../../apis/liquorStoreApi";
 
 class Snacks extends React.Component{
     state = {isLoading: true}
@@ -37,7 +38,7 @@ class Snacks extends React.Component{
     renderItem = (item)=>{
         return  <Card
             key={item.itemId}
-            image={item.image}
+            image={liquorStoreApi.defaults.baseURL + "/" +item.image}
             header={item.name}
             meta={item.category}
             description={`Price: ${item.price} NIS`}

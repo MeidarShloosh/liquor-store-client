@@ -3,6 +3,7 @@ import {Button, Header, Icon, Table, Image, Input} from "semantic-ui-react";
 import {connect} from "react-redux";
 import {addItemToCart, removeItemFromCart, updateCartItemQuantity, fetchCart} from "../../actions/cartActions";
 import {Link} from "react-router-dom";
+import liquorStoreApi from "../../apis/liquorStoreApi";
 
 class Cart extends React.Component{
     total = 0;
@@ -18,7 +19,7 @@ class Cart extends React.Component{
 
             return <Table.Row key={itemId}>
                 <Table.Cell>
-                    <Image src={image} size="small"/>
+                    <Image src={liquorStoreApi.defaults.baseURL + "/" +image} size="small"/>
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
                     {name}
