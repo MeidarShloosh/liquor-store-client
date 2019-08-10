@@ -4,6 +4,7 @@ import {fetchCocktails, addCocktailToCart } from "../../actions/cocktailActions"
 import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 import history from "../../history";
+import './Cocktails.css'
 
 class Cocktails extends React.Component{
     state = {isLoading: true}
@@ -40,9 +41,9 @@ class Cocktails extends React.Component{
             meta="Cocktails"
             description={
                 <div>
-                    <p>
-                        {cocktail.description}
-                    </p>
+                        {cocktail.description.split('\n').map(i => {
+                            return <p>{i}</p>
+                        })}
                     <strong>Price: {cocktail.price} NIS</strong>
                 </div>
             }

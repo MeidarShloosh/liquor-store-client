@@ -5,6 +5,8 @@ import {fetchStore} from "../../actions/storeActions";
 import SearchableCardDec from "../../components/SearchableCardDec";
 import {Button, Card} from "semantic-ui-react";
 import history from '../../history'
+import './Store.css'
+import _ from 'lodash'
 
 class Store extends React.Component{
     state = {isLoading: true}
@@ -49,8 +51,8 @@ class Store extends React.Component{
             isLoading={this.state.isLoading}
             renderItem={this.renderItem}
             loadingMessage="Loading Store"
-            items={this.props.store}
-            itemsPerRow={4}
+            items={_.sortBy(this.props.store, ["category"])}
+            itemsPerRow={5}
             noItemsMessage="No Items Found."
         />
     }
